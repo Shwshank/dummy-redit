@@ -35,3 +35,5 @@ export default connect(
   mapStateToProps,
   {getDataAction}
 )(Dashboard);
+
+// json-server --p 5000 db.json --watch
