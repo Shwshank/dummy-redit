@@ -11,10 +11,21 @@ class LikeCounter extends React.Component {
 
   };
 
+
   render = () => {
     return (
       <div>
-        !!!
+
+        <button type="button" className="btn btn-lg btn-info" disabled>
+          {this.props.votes.upVoteCount}
+        </button>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <button type="button" className="btn btn-lg btn-warning" disabled>
+          {this.props.votes.downVoteCount}
+        </button>
+
       </div>
     )
   }

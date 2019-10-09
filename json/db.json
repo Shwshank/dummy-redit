@@ -2,63 +2,93 @@
   "data":[
     {
       "id":1,
-      "name": "67 Test 1"
+      "name": "67 Test 1",
+      "upVote":100,
+      "downVote":20
     },
     {
       "id":2,
-      "name": "23Test 2"
+      "name": "23Test 2",
+      "upVote":101,
+      "downVote":21
     },
     {
       "id":3,
-      "name": "7Test 3"
+      "name": "7Test 3",
+      "upVote":102,
+      "downVote":22
     },
     {
       "id":4,
-      "name": "12Test 4"
+      "name": "12Test 4",
+      "upVote":103,
+      "downVote":23
     },
     {
       "id":5,
-      "name": "56Test 5"
+      "name": "56Test 5",
+      "upVote":104,
+      "downVote":24
     },
     {
       "id":6,
-      "name": "67Test 6"
+      "name": "67Test 6",
+      "upVote":105,
+      "downVote":25
     },
     {
       "id":7,
-      "name": "Test 7"
+      "name": "Test 7",
+      "upVote":106,
+      "downVote":26
     },
     {
       "id":8,
-      "name": "21Test 8"
+      "name": "21Test 8",
+      "upVote":107,
+      "downVote":27
     },
     {
       "id":9,
-      "name": "17Test 9"
+      "name": "17Test 9",
+      "upVote":101,
+      "downVote":21
     },
     {
       "id":10,
-      "name": "654Test 10"
+      "name": "654Test 10",
+      "upVote":101,
+      "downVote":21
     },
     {
       "id":11,
-      "name": "12Test 11"
+      "name": "12Test 11",
+      "upVote":101,
+      "downVote":21
     },
     {
       "id":12,
-      "name": "54Test 12"
+      "name": "54Test 12",
+      "upVote":101,
+      "downVote":21
     },
     {
       "id":13,
-      "name": "dfTest 13"
+      "name": "dfTest 13",
+      "upVote":101,
+      "downVote":21
     },
     {
       "id":14,
-      "name": "ATest 14"
+      "name": "ATest 14",
+      "upVote":101,
+      "downVote":21
     },
     {
       "id":15,
-      "name": "bTest 15"
+      "name": "bTest 15",
+      "upVote":101,
+      "downVote":21
     }
   ]
 }

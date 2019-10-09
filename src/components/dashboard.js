@@ -24,6 +24,8 @@ const sortOptions = [
   { value: 'name', label: 'Name' }
 ]
 
+const votes = {upVoteCount:0, downVoteCount:0}
+
 const defaultView = { value: 'list', label: 'List' }
 const defaultSort = { value: 'id', label: 'Id' }
 
@@ -70,6 +72,20 @@ class Dashboard extends React.Component {
 
   componentDidUpdate() {
     console.log(this.props);
+    let upVotes = 0;
+    let downVotes = 0;
+    for(let i=0;i<this.props.data.length; i++) {
+      // console.log(this.props.data[i]);
+      upVotes += this.props.data[i].upVote
+    }
+    for(let i=0;i<this.props.data.length; i++) {
+      // console.log(this.props.data[i]);
+      downVotes += this.props.data[i].downVote
+    }
+    console.log(upVotes);
+    console.log(downVotes);
+    votes.upVoteCount = upVotes
+    votes.downVoteCount = downVotes
   }
 
   onViewChange = (event)=>{
@@ -108,7 +124,7 @@ class Dashboard extends React.Component {
             <div className="col-8 text-center">
 
               <div>
-                <div style={{height:'200px', overflow:'auto'}}>
+                <div style={{height:'700px', overflow:'auto'}}>
                   <InfiniteScroll
                     loadMore={this.loadMore.bind(this)}
                     hasMore={this.state.hasMoreItems}
@@ -122,7 +138,7 @@ class Dashboard extends React.Component {
 
             </div>
             <div className="col-4 text-center">
-              <LikeCounter/>
+              <LikeCounter votes={votes} />
             </div>
           </div>
         </div>
