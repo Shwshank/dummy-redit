@@ -18,15 +18,21 @@ export const getDataAction = (_start=0, _end = 0) => async dispatch =>{
   })
 }
 
-export const sortByName =()=>{
+export const sortByHot =()=>{
   return({
-    type: 'SORT_DATA_BY_NAME'
+    type: 'SORT_DATA_BY_HOT'
   })
 }
 
-export const sortById =()=>{
+export const sortByNew =()=>{
   return({
-    type: 'SORT_DATA_BY_ID'
+    type: 'SORT_DATA_BY_NEW'
+  })
+}
+
+export const sortByTop =()=>{
+  return({
+    type: 'SORT_DATA_BY_TOP'
   })
 }
 

@@ -1,16 +1,14 @@
 import React from "react";
 import VoteButton from "./voteButton";
 
-class ListView extends React.Component {
+class CompactView extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {value:""};
   }
 
-  componentDidUpdate = () =>{
-    // console.log(this.props);
-  };
+  componentDidUpdate = () =>{};
 
   displayData() {
     if(this.props.data.length) {
@@ -30,13 +28,10 @@ class ListView extends React.Component {
                     </div>
                     {(i+1)}. <b> {this.props.data[i].title} </b> <span>, id: {this.props.data[i].id}, </span>
                     <i> posted by: {this.props.data[i].postedBy}</i>
-                    <br/>
-
-
                     <div className="mb-2 text-muted">
-                      <br/> {this.props.data[i].title} by {this.props.data[i].postedBy}, {this.props.data[i].timeOfPost} <br/>
+                      {this.props.data[i].title} by {this.props.data[i].postedBy}, {this.props.data[i].timeOfPost} <br/>
                     </div>
-                    <hr/>
+
                     <button type="button" className="btn btn-warning"><i className="fa fa-comments-o" aria-hidden="true"></i> {this.props.data[i].comments}</button>
                     &nbsp;
                     <button type="button" className="btn btn-info"> <i className="fa fa-thumbs-up" aria-hidden="true"></i> {this.props.data[i].upVote}</button>
@@ -61,4 +56,4 @@ class ListView extends React.Component {
   }
 }
 
-export default ListView;
+export default CompactView;

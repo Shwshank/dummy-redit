@@ -12,6 +12,7 @@ import reduxThunk from "redux-thunk";
 import 'bootstrap/dist/css/bootstrap.css';
 import Reducers from './reducers/reducer';
 import Dashboard from './components/dashboard';
+import './index.css';
 
 const persistConfig = {
   key: 'root',

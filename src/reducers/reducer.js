@@ -11,13 +11,18 @@ const getData = (state=[], action) =>{
         return [...state]
     }
 
-    case 'SORT_DATA_BY_NAME': {
-        state = _.sortBy(state, o => o.name)
+    case 'SORT_DATA_BY_HOT': {
+        state = _.orderBy(state, o => o.comments, 'desc')
         return [...state]
     }
 
-    case 'SORT_DATA_BY_ID': {
-        state = _.sortBy(state, o => o.id)
+    case 'SORT_DATA_BY_NEW': {
+        state = _.orderBy(state, o => o.timeOfPost, 'asc')
+        return [...state]
+    }
+
+    case 'SORT_DATA_BY_TOP': {
+        state = _.orderBy(state, o => o.upVote, 'desc')
         return [...state]
     }
 

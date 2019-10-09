@@ -2,93 +2,123 @@
   "data":[
     {
       "id":1,
-      "name": "67 Test 1",
       "upVote":100,
-      "downVote":20
+      "title":"Please read before submitting or commenting",
+      "postedBy":"u/tom",
+      "timeOfPost":"1d ago",
+      "comments":121
     },
     {
       "id":2,
-      "name": "23Test 2",
       "upVote":101,
-      "downVote":21
+      "title":"New desktop CSS + Snoo contest winners",
+      "postedBy":"u/sammy",
+      "timeOfPost":"3d ago",
+      "comments":78
     },
     {
       "id":3,
-      "name": "7Test 3",
       "upVote":102,
-      "downVote":22
+      "title":"Rent your PC when it's idle",
+      "postedBy":"u/jhon",
+      "timeOfPost":"4d ago",
+      "comments":8
     },
     {
       "id":4,
-      "name": "12Test 4",
       "upVote":103,
-      "downVote":23
+      "title":"An Insane 'bridge' At Wansheng Ordivician Theme Park, China",
+      "postedBy":"u/harold",
+      "timeOfPost":"3d ago",
+      "comments":23
     },
     {
       "id":5,
-      "name": "56Test 5",
       "upVote":104,
-      "downVote":24
+      "title":"Hungry, hungry, Hippos",
+      "postedBy":"u/kumar",
+      "timeOfPost":"8d ago",
+      "comments":32
     },
     {
       "id":6,
-      "name": "67Test 6",
       "upVote":105,
-      "downVote":25
+      "title":"I would literally die for this cat",
+      "postedBy":"u/edward",
+      "timeOfPost":"2d ago",
+      "comments":4
     },
     {
       "id":7,
-      "name": "Test 7",
       "upVote":106,
-      "downVote":26
+      "title":"Kincaid gets some excited zoomies",
+      "postedBy":"u/snowden",
+      "timeOfPost":"9d ago",
+      "comments":15
     },
     {
       "id":8,
-      "name": "21Test 8",
-      "upVote":107,
-      "downVote":27
+      "upVote":98,
+      "title":"Red Bull sided with Hong Kong",
+      "postedBy":"u/dan",
+      "timeOfPost":"5d ago",
+      "comments":25
     },
     {
       "id":9,
-      "name": "17Test 9",
       "upVote":101,
-      "downVote":21
+      "title":"A tender bite",
+      "postedBy":"u/brazelian",
+      "timeOfPost":"6d ago",
+      "comments":150
     },
     {
       "id":10,
-      "name": "654Test 10",
       "upVote":101,
-      "downVote":21
+      "title":"Absolutely insane Halloween display",
+      "postedBy":"u/jhon",
+      "timeOfPost":"5d ago",
+      "comments":8
     },
     {
       "id":11,
-      "name": "12Test 11",
       "upVote":101,
-      "downVote":21
+      "title":"No Country For Old South Park",
+      "postedBy":"u/snow",
+      "timeOfPost":"4d ago",
+      "comments":56
     },
     {
       "id":12,
-      "name": "54Test 12",
       "upVote":101,
-      "downVote":21
+      "title":"Drawing a deer with spinning & rolling technique",
+      "postedBy":"u/dojo",
+      "timeOfPost":"1d ago",
+      "comments":154
     },
     {
       "id":13,
-      "name": "dfTest 13",
       "upVote":101,
-      "downVote":21
+      "title":"Hold my beer seen 1",
+      "postedBy":"u/mark",
+      "timeOfPost":"7d ago",
+      "comments":31
     },
     {
       "id":14,
-      "name": "ATest 14",
       "upVote":101,
-      "downVote":21
+      "title":"A seedling to a fucks tree.",
+      "postedBy":"u/zuger",
+      "timeOfPost":"1d ago",
+      "comments":41
     },
     {
       "id":15,
-      "name": "bTest 15",
       "upVote":101,
-      "downVote":21
+      "title":"9th of October 2019",
+      "postedBy":"u/berg",
+      "timeOfPost":"2d ago",
+      "comments":18
     }
   ]
 }

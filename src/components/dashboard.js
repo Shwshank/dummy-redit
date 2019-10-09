@@ -4,27 +4,31 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import ListView from './view/listView';
 import CardView from './view/cardView';
+import CompactView from './view/compactView';
 import LikeCounter from './likeCounter/likeCounter';
 
 import InfiniteScroll from "react-infinite-scroller";
 
 import {
   getDataAction,
-  sortByName,
-  sortById
+  sortByHot,
+  sortByNew,
+  sortByTop
 } from '../actions/action'
 
 const viewOptions = [
   { value: 'list', label: 'List' },
-  { value: 'card', label: 'Card' }
+  { value: 'card', label: 'Card' },
+  { value: 'compact', label: 'Compact' }
 ]
 
 const sortOptions = [
-  { value: 'id', label: 'Id' },
-  { value: 'name', label: 'Name' }
+  { value: 'hot', label: 'Hot' },
+  { value: 'new', label: 'New' },
+  { value: 'top', label: 'Top' }
 ]
 
-const votes = {upVoteCount:0, downVoteCount:0}
+const votes = {upVoteCount:0}
 
 const defaultView = { value: 'list', label: 'List' }
 const defaultSort = { value: 'id', label: 'Id' }
@@ -44,10 +48,46 @@ class Dashboard extends React.Component {
 
   showItems() {
     if(this.state.view === "list")
-      return <ListView data={this.props.data}/>
+      return (
+        <div className="container-fluid">
+          <div className="row" >
+            <div className="col-9" >
+              <ListView data={this.props.data}/>
+            </div>
+            <div className="col-3" >
+              <LikeCounter votes={votes} />
+            </div>
+          </div>
+        </div>
+      )
 
     if(this.state.view === "card")
-      return <CardView data={this.props.data}/>
+      return (
+        <div className="container-fluid">
+          <div className="row" >
+            <div className="col-9" >
+              <CardView data={this.props.data}/>
+            </div>
+            <div className="col-3" >
+              <LikeCounter votes={votes} />
+            </div>
+          </div>
+        </div>
+      )
+
+    if(this.state.view === "compact")
+      return (
+        <div className="container-fluid">
+          <div className="row" >
+            <div className="col-9" >
+              <CompactView data={this.props.data}/>
+            </div>
+            <div className="col-3" >
+              <LikeCounter votes={votes} />
+            </div>
+          </div>
+        </div>
+      )
   }
 
   loadMore() {
@@ -82,8 +122,16 @@ class Dashboard extends React.Component {
 
   onSortChange = (event)=>{
 
-    if(event.value === "name") {
-      this.props.sortByName()
+    if(event.value === "hot") {
+      this.props.sortByHot()
+    }
+
+    if(event.value === "new") {
+      this.props.sortByNew()
+    }
+
+    if(event.value === "top") {
+      this.props.sortByTop()
     }
 
     if(event.value === "id") {
@@ -98,47 +146,72 @@ class Dashboard extends React.Component {
 
   render() {
     let upVotes = 0;
-    let downVotes = 0;
     for(let i=0;i<this.props.data.length; i++) {
       upVotes += this.props.data[i].upVote
     }
-    for(let i=0;i<this.props.data.length; i++) {
-      downVotes += this.props.data[i].downVote
-    }
 
     votes.upVoteCount = upVotes
-    votes.downVoteCount = downVotes
     return(
       <div>
 
-        <Dropdown options={viewOptions} onChange={this.onViewChange} value={defaultView} placeholder="Select view " />
+      <nav className="navbar navbar-light bg-light">
+        <a className="navbar-brand">Dummy Reddit</a>
+        <form className="form-inline">
+          <span className="navbar-brand">View</span>
+          &nbsp;
+          <Dropdown options={viewOptions} onChange={this.onViewChange} value={defaultView} placeholder="Select view " />
+          &nbsp;
+          &nbsp;
+          <span className="navbar-brand">Sort by</span>
+          &nbsp;
+          <Dropdown options={sortOptions} onChange={this.onSortChange} value={defaultSort} placeholder="Select view " />
+          &nbsp;
 
-        <Dropdown options={sortOptions} onChange={this.onSortChange} value={defaultSort} placeholder="Select view " />
+        </form>
+      </nav>
 
-        <br/><br/><br/><br/>
-        <div className="container">
-          <div className="row">
-            <div className="col-8 text-center">
+      <div className="banner">
+        <img src="https://styles.redditmedia.com/t5_2qt55/styles/bannerPositionedImage_atcdc0ifv4431.png" className="img-fluid mx-auto d-block p-t-1 p-b-1" alt="Responsive image"/>
+      </div>
 
-              <div>
-                <div style={{height:'76vh', overflow:'auto'}}>
-                  <InfiniteScroll
-                    loadMore={this.loadMore.bind(this)}
-                    hasMore={this.state.hasMoreItems}
-                    loader={<div className="loader" key={Math.floor(Math.random() * 10)}> Loading... </div>}
-                    useWindow={false}
-                  >
-                    {this.showItems()}
-                  </InfiniteScroll>
-                </div>
-              </div>
+      <div className="text-center p-t-1 p-b-1 bg-lite-color" >
+        <span className="subHeading" > View </span>
+        &nbsp; &nbsp;
+        <a href="#" className="card-link"                   onClick={this.onViewChange.bind(this,{value:"card"})}>
+        <i className="fa fa-th-large" aria-hidden="true"></i> Card </a>
+        <a href="#" className="card-link"                    onClick={this.onViewChange.bind(this,{value:"list"})}>
+        <i className="fa fa-th-list" aria-hidden="true"></i> List </a>
 
-            </div>
-            <div className="col-4 text-center">
-              <LikeCounter votes={votes} />
-            </div>
-          </div>
-        </div>
+        <a href="#" className="card-link"                    onClick={this.onViewChange.bind(this,{value:"compact"})}>
+        <i className="fa fa-list" aria-hidden="true"></i> Compact </a>
+
+        &nbsp; &nbsp; &nbsp; &nbsp;
+
+        <span className="subHeading" > Sort </span>
+        &nbsp; &nbsp;
+
+        <a href="#" className="card-link"                    onClick={this.onSortChange.bind(this,{value:"hot"})}>
+        <i className="fa fa-fire" aria-hidden="true"></i> Hot </a>
+
+        <a href="#" className="card-link"                    onClick={this.onSortChange.bind(this,{value:"new"})}>
+        <i className="fa fa-certificate" aria-hidden="true"></i> New </a>
+
+        <a href="#" className="card-link"                    onClick={this.onSortChange.bind(this,{value:"top"})}>
+        <i className="fa fa-thumbs-up" aria-hidden="true"></i> Top </a>
+
+
+      </div>
+
+      <div style={{height:'62vh', overflow:'auto'}}>
+        <InfiniteScroll
+          loadMore={this.loadMore.bind(this)}
+          hasMore={this.state.hasMoreItems}
+          loader={<div className="loader text-center" key={Math.floor(Math.random() * 10)}> <h2>  Loading... </h2> </div>}
+          useWindow={false}>
+          {this.showItems()}
+        </InfiniteScroll>
+      </div>
+
       </div>
     )
   }
@@ -153,6 +226,7 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {getDataAction,
-  sortByName,
-  sortById}
+  sortByHot,
+  sortByNew,
+  sortByTop}
 )(Dashboard);

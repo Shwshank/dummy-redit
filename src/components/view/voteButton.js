@@ -29,13 +29,20 @@ class VoteButton extends React.Component {
   displayButtons() {
     return (
       <div>
-        <hr/>
-        <button type="button" className="btn btn-info" onClick={this.voteUpFun.bind(this,this.props.upVote)}> <i className="fa fa-thumbs-up" aria-hidden="true"></i> {this.props.upVote} </button>
 
-        &nbsp; &nbsp; &nbsp;
 
-        <button type="button" className="btn btn-warning"
-        onClick={this.voteDownFun.bind(this,this.props.downVote)}> <i className="fa fa-thumbs-down" aria-hidden="true"></i> {this.props.downVote} </button>
+        <span onClick={this.voteUpFun.bind(this,this.props.upVote)}>
+        &nbsp;<i className="fa fa-arrow-up" aria-hidden="true"></i>
+        </span>
+
+        <br/>
+          {this.props.upVote}
+        <br/>
+
+        <span onClick={this.voteDownFun.bind(this,this.props.upVote)}>
+        &nbsp;<i className="fa fa-arrow-down" aria-hidden="true"></i>
+        </span>
+
       </div>
     )
   }
