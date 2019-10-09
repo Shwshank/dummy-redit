@@ -8,7 +8,7 @@ class ListView extends React.Component {
   }
 
   componentDidUpdate = () =>{
-    console.log(this.props);
+    // console.log(this.props);
   };
 
   displayData() {
@@ -16,21 +16,17 @@ class ListView extends React.Component {
       var items = [];
 
       for (var i = 0; i < this.props.data.length; i++) {
-        console.log(i);
-        console.log(this.props.data);
         items.push(
 
             <div key={this.props.data[i].id} className="card">
               <div className="card-body" >
-
                 <div className="card-title">
                   {(i+1)}. <b> {this.props.data[i].name} </b> <br/>
                 </div>
                 <div className="card-subtitle mb-2 text-muted">
                   {this.props.data[i].id} <br/> {this.props.data[i].name} <br/>
                 </div>
-
-                </div>
+              </div>
             </div>
           );
         }

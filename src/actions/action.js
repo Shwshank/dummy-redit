@@ -17,3 +17,15 @@ export const getDataAction = (_start=0, _end = 0) => async dispatch =>{
     }
   })
 }
+
+export const sortByName =()=>{
+  return({
+    type: 'SORT_DATA_BY_NAME'
+  })
+}
+
+export const sortById =()=>{
+  return({
+    type: 'SORT_DATA_BY_ID'
+  })
+}

@@ -9,7 +9,9 @@ import LikeCounter from './likeCounter/likeCounter';
 import InfiniteScroll from "react-infinite-scroller";
 
 import {
-  getDataAction
+  getDataAction,
+  sortByName,
+  sortById
 } from '../actions/action'
 
 const viewOptions = [
@@ -17,7 +19,13 @@ const viewOptions = [
   { value: 'card', label: 'Card' }
 ]
 
+const sortOptions = [
+  { value: 'id', label: 'Id' },
+  { value: 'name', label: 'Name' }
+]
+
 const defaultView = { value: 'list', label: 'List' }
+const defaultSort = { value: 'id', label: 'Id' }
 
 class Dashboard extends React.Component {
 
@@ -65,9 +73,23 @@ class Dashboard extends React.Component {
   }
 
   onViewChange = (event)=>{
-
       this.setState({
         view : event.value
+      })
+  }
+
+  onSortChange = (event)=>{
+
+    if(event.value === "name") {
+      this.props.sortByName()
+    }
+
+    if(event.value === "id") {
+      this.props.sortById()
+    }
+
+      this.setState({
+        sortBy : event.value
       })
 
   }
@@ -77,6 +99,8 @@ class Dashboard extends React.Component {
       <div>
 
         <Dropdown options={viewOptions} onChange={this.onViewChange} value={defaultView} placeholder="Select view " />
+
+        <Dropdown options={sortOptions} onChange={this.onSortChange} value={defaultSort} placeholder="Select view " />
 
         <br/><br/><br/><br/>
         <div className="container">
@@ -88,7 +112,7 @@ class Dashboard extends React.Component {
                   <InfiniteScroll
                     loadMore={this.loadMore.bind(this)}
                     hasMore={this.state.hasMoreItems}
-                    loader={<div className="loader"> Loading... </div>}
+                    loader={<div className="loader" key={Math.floor(Math.random() * 10)}> Loading... </div>}
                     useWindow={false}
                   >
                     {this.showItems()}
@@ -115,5 +139,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {getDataAction}
+  {getDataAction,
+  sortByName,
+  sortById}
 )(Dashboard);
