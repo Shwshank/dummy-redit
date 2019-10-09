@@ -3,10 +3,10 @@ import {
 } from '../services/apiServices'
 
 // get data
-export const getDataAction = () => async dispatch =>{
+export const getDataAction = (_start=0, _end = 0) => async dispatch =>{
   let data = []
 
-  getDataAPI().then(res=>{
+  getDataAPI(_start, _end).then(res=>{
     if(res) {
       if(res.status===200||res.status===201)
       data = res.data;

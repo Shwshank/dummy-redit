@@ -2,18 +2,19 @@ import React from "react";
 
 class LikeCounter extends React.Component {
 
-  componentWillMount() {
-    // this.props.getDataAction()
+  constructor(props) {
+    super(props);
+    this.state = {value:""};
   }
 
-  componentDidUpdate() {
-    // console.log(this.props);
-  }
+  componentDidUpdate = () =>{
 
-  render() {
-    return(
+  };
+
+  render = () => {
+    return (
       <div>
-        <p> LikeCounter works!</p>
+        !!!
       </div>
     )
   }

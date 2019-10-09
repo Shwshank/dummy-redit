@@ -6,7 +6,9 @@ const getData = (state=[], action) =>{
   switch(action.type) {
 
     case 'GET_DATA': {
-        state = action.payload
+
+        state = [...state, ...action.payload]
+        state = _.uniqBy(state, 'id')
         return [...state]
     }
 
