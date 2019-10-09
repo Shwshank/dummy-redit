@@ -30,12 +30,12 @@ class VoteButton extends React.Component {
     return (
       <div>
         <hr/>
-        <button type="button" className="btn btn-info" onClick={this.voteUpFun.bind(this,this.props.upVote)}> {this.props.upVote} </button>
+        <button type="button" className="btn btn-info" onClick={this.voteUpFun.bind(this,this.props.upVote)}> <i className="fa fa-thumbs-up" aria-hidden="true"></i> {this.props.upVote} </button>
 
         &nbsp; &nbsp; &nbsp;
 
         <button type="button" className="btn btn-warning"
-        onClick={this.voteDownFun.bind(this,this.props.downVote)}> {this.props.downVote} </button>
+        onClick={this.voteDownFun.bind(this,this.props.downVote)}> <i className="fa fa-thumbs-down" aria-hidden="true"></i> {this.props.downVote} </button>
       </div>
     )
   }

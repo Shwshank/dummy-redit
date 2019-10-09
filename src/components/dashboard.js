@@ -72,19 +72,6 @@ class Dashboard extends React.Component {
 
   componentDidUpdate() {
     console.log(this.props);
-    let upVotes = 0;
-    let downVotes = 0;
-    for(let i=0;i<this.props.data.length; i++) {
-      // console.log(this.props.data[i]);
-      upVotes += this.props.data[i].upVote
-    }
-    for(let i=0;i<this.props.data.length; i++) {
-      // console.log(this.props.data[i]);
-      downVotes += this.props.data[i].downVote
-    }
-
-    votes.upVoteCount = upVotes
-    votes.downVoteCount = downVotes
   }
 
   onViewChange = (event)=>{
@@ -110,6 +97,17 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    let upVotes = 0;
+    let downVotes = 0;
+    for(let i=0;i<this.props.data.length; i++) {
+      upVotes += this.props.data[i].upVote
+    }
+    for(let i=0;i<this.props.data.length; i++) {
+      downVotes += this.props.data[i].downVote
+    }
+
+    votes.upVoteCount = upVotes
+    votes.downVoteCount = downVotes
     return(
       <div>
 
@@ -123,7 +121,7 @@ class Dashboard extends React.Component {
             <div className="col-8 text-center">
 
               <div>
-                <div style={{height:'700px', overflow:'auto'}}>
+                <div style={{height:'76vh', overflow:'auto'}}>
                   <InfiniteScroll
                     loadMore={this.loadMore.bind(this)}
                     hasMore={this.state.hasMoreItems}

@@ -26,7 +26,8 @@ const getData = (state=[], action) =>{
       if( index=== -1 ) {
         return [...state]
       } else {
-        state[index].upVote++
+        state[index].upVote++;
+        state[index].downVote--
       }
       return [...state]
     }
@@ -36,7 +37,8 @@ const getData = (state=[], action) =>{
       if( index=== -1 ) {
         return [...state]
       } else {
-        state[index].downVote++
+        state[index].downVote++;
+        state[index].upVote--
       }
       return [...state]
     }

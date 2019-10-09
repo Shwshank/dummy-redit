@@ -1,4 +1,5 @@
 import React from "react";
+import VoteButton from "./voteButton";
 
 class CardView extends React.Component {
 
@@ -17,7 +18,7 @@ class CardView extends React.Component {
 
       for (var i = 0; i < this.props.data.length; i++) {
         items.push(
-          <div key={this.props.data[i].id} className="col-3 text-center p-2 float-left">
+          <div key={this.props.data[i].id} className="col-6 text-center p-2 float-left">
             <div key={this.props.data[i].id} className="card">
               <div className="card-body" >
                 <div className="card-title">
@@ -26,6 +27,8 @@ class CardView extends React.Component {
                 <div className="card-subtitle mb-2 text-muted">
                   {this.props.data[i].id} <br/> {this.props.data[i].name} <br/>
                 </div>
+                <VoteButton
+                upVote={this.props.data[i].upVote} downVote={this.props.data[i].downVote} id={this.props.data[i].id}/>
               </div>
             </div>
           </div>
