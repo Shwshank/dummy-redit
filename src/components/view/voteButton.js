@@ -1,4 +1,10 @@
 import React from "react";
+import { connect } from 'react-redux';
+
+import {
+  upVoteAction,
+  downVoteAction
+} from '../../actions/action'
 
 class VoteButton extends React.Component {
 
@@ -12,10 +18,12 @@ class VoteButton extends React.Component {
 
   voteUpFun = (count) =>{
     console.log(count);
+    this.props.upVoteAction(this.props.id)
   }
 
   voteDownFun = (count) =>{
     console.log(count);
+    this.props.downVoteAction(this.props.id)
   }
 
   displayButtons() {
@@ -41,4 +49,14 @@ class VoteButton extends React.Component {
   }
 }
 
-export default VoteButton;
+const mapStateToProps = state => {
+  return {
+    data: state.getDataReducer
+   };
+};
+
+export default connect(
+  mapStateToProps,
+  {upVoteAction,
+  downVoteAction}
+)(VoteButton);

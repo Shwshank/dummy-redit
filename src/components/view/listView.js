@@ -27,7 +27,8 @@ class ListView extends React.Component {
                 <div className="card-subtitle mb-2 text-muted">
                   {this.props.data[i].id} <br/> {this.props.data[i].name} <br/>
                 </div>
-                <VoteButton upVote={this.props.data[i].upVote} downVote={this.props.data[i].downVote} />
+                <VoteButton
+                upVote={this.props.data[i].upVote} downVote={this.props.data[i].downVote} id={this.props.data[i].id}/>
               </div>
             </div>
           );

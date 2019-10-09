@@ -82,8 +82,7 @@ class Dashboard extends React.Component {
       // console.log(this.props.data[i]);
       downVotes += this.props.data[i].downVote
     }
-    console.log(upVotes);
-    console.log(downVotes);
+
     votes.upVoteCount = upVotes
     votes.downVoteCount = downVotes
   }

@@ -21,6 +21,26 @@ const getData = (state=[], action) =>{
         return [...state]
     }
 
+    case 'VOTE_UP': {
+      let index = _.findIndex(state, {id:action.payload})
+      if( index=== -1 ) {
+        return [...state]
+      } else {
+        state[index].upVote++
+      }
+      return [...state]
+    }
+
+    case 'VOTE_DOWN': {
+      let index = _.findIndex(state, {id:action.payload})
+      if( index=== -1 ) {
+        return [...state]
+      } else {
+        state[index].downVote++
+      }
+      return [...state]
+    }
+
     default:{
       return [...state]
     }

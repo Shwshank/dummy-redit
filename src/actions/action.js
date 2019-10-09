@@ -29,3 +29,17 @@ export const sortById =()=>{
     type: 'SORT_DATA_BY_ID'
   })
 }
+
+export const upVoteAction=(id)=>{
+  return({
+    type: 'VOTE_UP',
+    payload: id
+  })
+}
+
+export const downVoteAction=(id)=>{
+  return({
+    type: 'VOTE_DOWN',
+    payload: id
+  })
+}
